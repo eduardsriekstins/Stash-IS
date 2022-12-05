@@ -20,7 +20,7 @@ services:
 
 variables:
   POSTGRES_DB: stash-is
-
+  POSTGRES_PASSWORD: postgres
 # Cache gems in between builds
 cache:
   paths:
