@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+User.create(full_name: 'Eduards Riekstins', email: 'eduardsriekstins@gmail.com', password: 'Eduards01!', password_confirmation: 'Eduards01!')
+
+1.times do |x|
+  Post.create(title: "First post", body: "This is the first post in this System!", user_id: User.first.id)
+end
