@@ -76,3 +76,5 @@ end
 
 # Login and users use Devise
 gem "devise"
+
+gem "byebug"

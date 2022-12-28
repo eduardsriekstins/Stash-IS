@@ -1,0 +1,11 @@
+<%= form_with(model: [project, task]) do |f|%>
+  <div class="form-control">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :description %>
+    <%= f.rich_text_area :description %>
+    <%= f.label :status %>
+    <%= f.select :status, Task::STATUS_OPTIONS %>
+    <%= f.submit label_for_submit, class: "btn btn-dark mt-1"%>
+  </div>
+<% end %>

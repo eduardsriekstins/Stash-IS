@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   authenticated :user, ->(user) { user.admin? } do
     get 'admin', to: 'admin#index'
     get 'admin/posts'
@@ -14,9 +15,15 @@ Rails.application.routes.draw do
   }
 
   get '/u/:id', to: 'users#profile', as: 'user'
+
+  resources :projects do
+    resources :tasks
+  end
+
   resources :posts do 
     resources :comments
   end
+  
   get 'about', to: 'pages#about'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
