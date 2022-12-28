@@ -11,4 +11,6 @@ User.create(full_name: 'Tester One', email: 'tester@test.com', password: 'passwo
 
 1.times do |x|
   Post.create(title: "First post", body: "This is the first post in this System!", user_id: User.first.id)
+  Project.create(name: "First project", description: "This is the first project in this System!", user_id: User.first.id)
+  Task.create(name: "First task", description: "This is the first task in this System!", status: "to do", project_id: Project.first.id, user_id: User.first.id)
 end

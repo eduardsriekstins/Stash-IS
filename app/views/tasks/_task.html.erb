@@ -1,0 +1,28 @@
+<div class="task-<%= task.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;">
+  <% if current_user == task.user %>
+    <div class="btn-group float-end">
+      <%= link_to "Edit", nil, remote: true, class: "btn btn-light",
+        data: {
+          controller: "tasks",
+          action: "tasks#changeForm",
+          tasks_form_param: "edit-form-#{task.id}",
+          tasks_name_param: "task-name-#{task.id}",
+          tasks_description_param: "task-description-#{task.id}",
+          tasks_status_param: "task-status-#{task.id}"
+        } %>
+      <%= button_to "Delete", [project, task], class: "btn btn-dark", method: :delete %> 
+    </div> 
+    <div id="edit-form-<%= task.id %>" class="d-none">
+      <%= render 'tasks/form', project: @project, task: task, label_for_submit: "Update" %>
+    </div>
+  <% end %>
+  <div id="task-name-<%= task.id %>">
+    <h5>Task name: <%= task.name %></h5>
+  </div>
+  <div id="task-description-<%= task.id %>">
+    <h5>Description: <%= task.description %></h5>
+  </div>
+  <div id="task-status-<%= task.id %>">
+    <h5> Task status: <%= task.status %></h5>
+  </div>
+</div>
