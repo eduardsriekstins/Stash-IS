@@ -1,7 +1,7 @@
 <div class="task-<%= task.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;">
   <% if current_user == task.user %>
     <div class="btn-group float-end">
-      <%= link_to "Edit", nil, remote: true, class: "btn btn-light",
+      <%= link_to "Edit", nil, remote: true, class: "btn btn-light btn btn-outline-dark",
         data: {
           controller: "tasks",
           action: "tasks#changeForm",
