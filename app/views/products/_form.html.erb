@@ -1,0 +1,31 @@
+<%= form_with(model: [category, category.products.build]) do |f| %>
+  <div class="form-control">
+      <div>
+        <%= f.label :model, style: "display: block" %>
+        <%= f.text_field :model %>
+      </div>
+      <div>
+        <%= f.label :name, style: "display: block" %>
+        <%= f.text_field :name %>
+      </div>
+      <div>
+        <%= f.label :manufacturer, style: "display: block" %>
+        <%= f.text_field :manufacturer %>
+      </div>
+
+      <div>
+        <%= f.label :description, style: "display: block" %>
+        <%= f.text_area :description %>
+      </div>
+
+      <div>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </div>
+
+      <div>
+        <%= f.submit %>
+      </div>
+
+  </div>
+<% end %>
