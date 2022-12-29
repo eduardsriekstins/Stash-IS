@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :tasks, dependent: :destroy
+  has_one_attached :avatar
 
   # def email_required? for disabling required errors from the devise library, search for the errors in yml file?
   #   true

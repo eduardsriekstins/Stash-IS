@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   authenticated :user, ->(user) { user.admin? } do
     get 'admin', to: 'admin#index'
     get 'admin/posts'
@@ -18,6 +17,10 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks
+  end
+
+  resources :categories do
+    resources :products 
   end
 
   resources :posts do 
