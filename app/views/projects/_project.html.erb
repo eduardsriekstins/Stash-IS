@@ -1,9 +1,9 @@
 <div id="<%= dom_id project %>">
   <div class="container">
     <h2><%= project.name %></h2>
-    <h4> Created by <%= project.user.full_name %></h4>
     <div>
-      <%= project.description %>
+      <h5><%= project.description %></h5>
     </div>
+    <p> Created by <%= project.user.full_name %></p>
   </div>
 </div>
