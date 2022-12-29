@@ -2,10 +2,10 @@
 <%= render @post %>
 
 <div>
-  <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" %> |
+  <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light" if current_user == @post.user %> |
   <%= link_to "Back to posts", posts_path, class: "btn btn-light" %>
 
-  <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-dark" %>
+  <%= button_to "Destroy this post", @post, method: :delete, class: "btn btn-dark" if current_user == @post.user  %>
 </div>
 
 <div class="container">

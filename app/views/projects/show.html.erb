@@ -2,8 +2,8 @@
 <%= render @project %>
 
 <div class="container">
-  <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-light" %> |
-  <%= link_to "Back to projects", projects_path, class: "btn btn-light" %>
+  <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-light" if current_user == @project.user %> |
+  <%= link_to "Back to projects", projects_path, class: "btn btn-light" if current_user == @project.user %>
 
   <%= button_to "Destroy this project", @project, method: :delete, class: "btn btn-dark" %>
 </div>
@@ -14,7 +14,7 @@
   <h2> Additional Tasks </h2>
   <div id="options" data-controller="visibility">
     <button class="btn btn-dark" data-action="visibility#toggleTargets">New Task</button>
-    <div data-visibility-target="hideable" hidden><%= render 'tasks/form', project: @project, task: @project.tasks.build, label_for_submit: "Create" %></div>
+    <div data-visibility-target="hideable" hidden><%= render 'tasks/form', project: @project, task: Task.new(project: @project), label_for_submit: "Create" %></div>
   </div>
   <hr/>
   <% @tasks.each do |task| %>
