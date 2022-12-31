@@ -1,0 +1,18 @@
+<div class="product-<%= product.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;" >
+
+  <div id="product-image-<%= product.id %>">
+    <%= image_tag(product.image) %>
+  </div>
+
+  <div id="product-name-<%= product.id %>">
+    <h5>Product name: <%= product.name %></h5>
+  </div>
+  <div id="product-manufacturer-<%= product.id %>">
+    <h5>Manufacturer: <%= product.manufacturer %></h5>
+  </div>
+
+  <div id="options" data-controller="visibility">
+    <button class="btn btn-dark" data-action="visibility#toggleTargets">Details</button>
+    <div data-visibility-target="hideable" hidden><%= render 'products/product', product: product %></div>
+  </div>
+</div>
