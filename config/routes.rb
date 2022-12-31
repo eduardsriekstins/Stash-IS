@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'admin/show_post/:id', to: "admin#show_post", as: 'admin_post'
   end
 
+
   get 'users/profile'
   devise_for :users, controllers: {
     sessions: 'users/sessions',
