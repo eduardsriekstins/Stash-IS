@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     get 'admin/show_post/:id', to: "admin#show_post", as: 'admin_post'
   end
 
+  #post 'projects/:id/add'
+  #post 'projects/:id/remove'
 
   get 'users/profile'
   devise_for :users, controllers: {
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks
+    resource :project_products, only: [:create, :destroy]
   end
 
   resources :categories do
