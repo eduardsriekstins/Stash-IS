@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks
-    resource :project_products, only: [:create, :destroy]
+    resources :orderables, shallow: true
   end
 
   resources :categories do
