@@ -1,0 +1,15 @@
+  <div class="container">
+    <h1>Editing project product</h1>
+
+    <%= form_with(model: @orderable) do |f| %>
+    <%= f.text_field :product_name, disabled: true %>
+    <%= f.number_field :quantity %>
+    <%= f.submit %>
+    <% end %>
+
+    <br>
+
+    <div>
+      <%= link_to "Back to project", project_path(@orderable.project) %>
+    </div>
+  </div>
