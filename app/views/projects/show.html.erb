@@ -4,10 +4,12 @@
   <%= link_to "Back to projects", projects_path, class: "btn btn-light btn btn-outline-dark mb-2" if current_user == @project.user %>
 
   <%= button_to "Destroy this project", @project, method: :delete, class: "btn btn-dark ms-3" %>
+  
+  <div><h4> Adding Products </h4> </div>
   <%= form_with(model: Orderable.new, url: project_orderables_path(@project)) do |f| %>
     <%= f.hidden_field :project_id, value: @project.id %>
     <%= f.select :product_id, Product.where.not(id: Product.includes(:orderables).where(orderables: { project_id: [@project.id] }).ids).collect{ |p| [p.name, p.id] } %>
-    <%= f.number_field :quantity, min: 1 %>
+    <%= f.number_field :quantity, value: 0, min: 1 %>
     <%= f.submit %>
   <% end %>
 

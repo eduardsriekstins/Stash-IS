@@ -1,5 +1,7 @@
-<%= orderable.product.name %>
-<%= orderable.quantity %>
+<div class="container">
+  <%= orderable.product.name %>
+  <%= orderable.quantity %>
 
-<%= button_to "Destroy", orderable_path(orderable), method: :delete %>
-<%= link_to "Edit", edit_orderable_path(orderable) %>
+  <%= button_to "Destroy", orderable_path(orderable), method: :delete, class: "btn btn-dark" %>
+  <%= link_to "Edit", edit_orderable_path(orderable), class: "btn btn-light btn btn-outline-dark" %>
+</div>
