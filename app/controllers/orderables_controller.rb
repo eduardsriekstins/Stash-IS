@@ -8,7 +8,7 @@ class OrderablesController < ApplicationController
         flash[:notice] = "Product has been added to Project"
         redirect_to project_path(@project)
       else
-        flash[:notice] = "There might not be enough Products, so Product has not been added to Project"
+        flash[:alert] = "There might not be enough Products, so Product has not been added to Project"
         redirect_to project_path(@project)
       end
     end
