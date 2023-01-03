@@ -20,12 +20,11 @@ class OrderablesController < ApplicationController
     def update
       @orderable = Orderable.find(params[:id])
       @product = @orderable.product
-      byebug
       respond_to do |format|
         if Project::AddProductService.run(@orderable, orderable_params, @product)
           format.html { redirect_to project_url(@orderable.project), notice: "Project has been updated!" }
         else 
-          format.html { redirect_to project_url(@orderable.project), alert: "Project has not been updated!" }
+          format.html { redirect_to project_url(@orderable.project), alert: "There might not be enough Products, so Product has not been added to Project!" }
         end
       end
     end

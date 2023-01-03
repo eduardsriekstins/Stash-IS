@@ -28,6 +28,6 @@ class Project::AddProductService
   end
   
   def stock_available?
-    stock_item.quantity_available - quantity_change >= 0
+    stock_item.quantity_available + quantity_change >= 0
   end
 end
