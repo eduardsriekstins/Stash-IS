@@ -16,7 +16,6 @@
 
 <div>
   <% @products.each do |product| %>
-    <%#byebug %>
     <%= render 'products/product_index', locals: { category: @category, product: product } %>
   <% end %>
 </div>
