@@ -22,7 +22,7 @@ class OrderablesController < ApplicationController
       @product = @orderable.product
       respond_to do |format|
         if Project::AddProductService.run(@orderable, orderable_params, @product)
-          format.html { redirect_to project_url(@orderable.project), notice: "Project has been updated!" }
+          format.html { redirect_to project_url(@orderable.project), notice: "Project Product has been updated!" }
         else 
           format.html { redirect_to project_url(@orderable.project), alert: "There might not be enough Products, so Product has not been added to Project!" }
         end
@@ -33,7 +33,7 @@ class OrderablesController < ApplicationController
       @orderable = Orderable.find(params[:id])
       project = @orderable.project
       @orderable.destroy
-      redirect_to project_path(project)
+      redirect_to project_path(project), alert: "Product has been deleted and it's quantity will need to be added to Products!"
     end
     private
 
