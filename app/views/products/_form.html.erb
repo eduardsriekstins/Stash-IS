@@ -24,6 +24,13 @@
       </div>
 
       <div>
+        <%= f.fields_for :stock_item do |sf| %>
+          <%= sf.label :quantity_available %>
+          <%= sf.number_field :quantity_available %>
+        <% end %>
+      </div>
+
+      <div>
         <%= f.submit %>
       </div>
 

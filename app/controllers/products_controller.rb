@@ -3,15 +3,8 @@ class ProductsController < ApplicationController
 
   def new
     @category = Category.find(params[:category_id])
-  end
-
-  def show
-  
-  end
-
-  def edit
-    @category = Category.find(params[:category_id])
-    @product = @category.products.find(params[:id])
+    @product = Product.new(category: @category)
+    @product.build_stock_item
   end
 
   def create
@@ -28,9 +21,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+    @category = @product.category
+  end
+
   def update
-    @category = Category.find(params[:category_id])
-    @product = @category.products.find(params[:id])
+    @product = Product.find(params[:id])
+    @category = @product.category
     respond_to do |format|
       if @product.update(products_params)
         format.html { redirect_to category_url(@category), notice: "Product has been updated!" }
@@ -50,7 +48,7 @@ class ProductsController < ApplicationController
   private
 
     def products_params
-      params.require(:product).permit(:name, :model, :description, :category_id, :image, :manufacturer)
+      params.require(:product).permit(:name, :model, :description, :category_id, :image, :manufacturer, stock_item_attributes: [:quantity_available])
     end
 
 

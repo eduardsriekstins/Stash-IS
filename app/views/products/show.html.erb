@@ -1,8 +1,0 @@
-<%= render 'products/product', product: product %>
-
-<div>
-  <%= link_to "Edit this product", edit_category_product_path(product), class:"btn btn-light btn btn-outline-dark" %>
-  <%= link_to "Back to category", category_path, class:"btn btn-light btn btn-outline-dark" %>
-
-  <%= button_to "Delete this product", [category, product], method: :delete, class: "btn btn-dark" %>
-</div>

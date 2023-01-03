@@ -2,12 +2,13 @@ class OrderablesController < ApplicationController
 
     def create
       @project = Project.find(params[:project_id])
-      @orderable = Orderable.new(orderable_params)
-      if @orderable.save
+      @product = Product.find(orderable_params[:product_id])
+      @orderable = Orderable.new
+      if Project::AddProductService.run(@orderable, orderable_params, @product)
         flash[:notice] = "Product has been added to Project"
         redirect_to project_path(@project)
       else
-        flash[:notice] = "Product has not been added to Project"
+        flash[:notice] = "There might not be enough Products, so Product has not been added to Project"
         redirect_to project_path(@project)
       end
     end
@@ -18,8 +19,10 @@ class OrderablesController < ApplicationController
 
     def update
       @orderable = Orderable.find(params[:id])
+      @product = @orderable.product
+      byebug
       respond_to do |format|
-        if @orderable.update(orderable_params)
+        if Project::AddProductService.run(@orderable, orderable_params, @product)
           format.html { redirect_to project_url(@orderable.project), notice: "Project has been updated!" }
         else 
           format.html { redirect_to project_url(@orderable.project), alert: "Project has not been updated!" }
