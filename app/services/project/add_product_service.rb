@@ -13,8 +13,7 @@ class Project::AddProductService
     @stock_item = @product.stock_item
   end
   
-  def run
-    byebug  
+  def run 
     if stock_available?
       ActiveRecord::Base.transaction do
         stock_item.increment!(:quantity_available, quantity_change)
