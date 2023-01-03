@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories do
-    resources :products 
+    resources :products, shallow: true 
   end
 
   resources :posts do 

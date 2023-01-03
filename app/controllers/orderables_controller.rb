@@ -3,7 +3,7 @@ class OrderablesController < ApplicationController
     def create
       @project = Project.find(params[:project_id])
       @orderable = Orderable.new(orderable_params)
-      if @orderable.save
+      if @orderable.save && Project::AddProductService.run(@project, orderable_params)
         flash[:notice] = "Product has been added to Project"
         redirect_to project_path(@project)
       else
