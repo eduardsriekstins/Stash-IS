@@ -30,7 +30,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @category = @product.category
     respond_to do |format|
-      byebug
       if @product.update(products_params)
         format.html { redirect_to category_url(@category), notice: "Product has been updated!" }
       else 
