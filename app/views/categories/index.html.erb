@@ -1,7 +1,7 @@
 <div class="container">
   <br>
   <h2 class="card-title d-flex justify-content-between mt-3 mb-3"><span>Categories</span>
-    <%= link_to "New category", new_category_path, class: "btn btn-dark" %>
+    <%= link_to "New category", new_category_path, class: "btn btn-dark" if current_user.admin? %>
   </h2>
   <br>
   <% @categories.in_groups_of(4, false).each do |group| %>
