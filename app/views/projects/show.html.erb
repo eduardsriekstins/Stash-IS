@@ -1,19 +1,22 @@
-<div class="container">
-    <%= render @project %>
-  <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-light btn btn-outline-dark mb-2 ms-3" if current_user == @project.user %> 
-  <%= link_to "Back to projects", projects_path, class: "btn btn-light btn btn-outline-dark mb-2" if current_user == @project.user %>
+<div class="container mb-2">
+  <%= render @project %>
+  <div class="btn btn-group">
+    <%= link_to "Edit this project", edit_project_path(@project), class: "btn btn-light btn btn-outline-dark mb-2 ms-3" if current_user == @project.user %> 
+    <%= link_to "Back to projects", projects_path, class: "btn btn-light btn btn-outline-dark ms-2 mb-2" if current_user == @project.user %>
+    
+    <%= button_to "Delete this project", @project, method: :delete, class: "btn btn-dark ms-2" %>
+  </div>
 
-  <%= button_to "Destroy this project", @project, method: :delete, class: "btn btn-dark ms-3" %>
-  
-  <div><h4> Adding Products </h4> </div>
+  <hr/>
+  <div class="mb-5"><h4> Adding Products </h4>
   <%= form_with(model: Orderable.new, url: project_orderables_path(@project)) do |f| %>
     <%= f.hidden_field :project_id, value: @project.id %>
-    <%= f.select :product_id, Product.where.not(id: Product.includes(:orderables).where(orderables: { project_id: [@project.id] }).ids).collect{ |p| [p.name, p.id] } %>
+    <%= f.select :product_id, Product.where.not(id: Product.includes(:orderables).where(orderables: { project_id: [@project.id] }).ids).collect{ |p| [p.name, p.id] }, class: "form-select form-select-sm" %>
     <%= f.number_field :quantity, value: 1, min: 1 %>
-    <%= f.submit %>
+    <%= f.submit 'Add Product', class: "btn btn-dark" %>
   <% end %>
-
-  <hr />
+  </div>
+  <hr/>
   <h4> Project Products: </h4>
   <%= render partial: 'projects/orderable', collection: @project.orderables, locals: { project: @project } %>
 

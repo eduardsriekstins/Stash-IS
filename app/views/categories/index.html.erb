@@ -7,8 +7,8 @@
   <% @categories.in_groups_of(4, false).each do |group| %>
   <div class="row">
     <% group.each do |category| %>
-      <div class="col-md-3 card d-flex justify-content-center">
-        <%= render "category_index", category: category %>
+      <div class="col-md-3 card d-flex justify-content-center ms-2">
+          <%= render "category_index", category: category %>
       </div>
     <% end %>
   </div>

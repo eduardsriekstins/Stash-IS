@@ -23,7 +23,7 @@
     <h5>Description: <%= task.description %></h5>
   </div>
   <div id="task-status-<%= task.id %>">
-    <h5> Task status: <%= task.status %></h5>
+    <span class="badge rounded-pill bg-<%= task.badge_color %>"> Task status: <%= task.status %></span>
   </div>
   <p> Created by: <%= task.user.full_name %> </p>
 </div>

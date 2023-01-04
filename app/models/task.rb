@@ -8,4 +8,14 @@ class Task < ApplicationRecord
     ['In Progress', 'in progress'],
     ['Completed', 'completed'],
   ]
+  def badge_color
+    case status
+    when 'to do'
+      'secondary'
+    when 'in progress'
+      'info'
+    when 'completed'
+      'success'
+    end
+  end
 end
