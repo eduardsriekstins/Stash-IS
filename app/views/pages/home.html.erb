@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>Stash-IS</h1>
-  <p>Main page of Stash-IS</p>
-  <%= link_to "About", about_path, class: "btn btn-dark" %>
+  <h1>Welcome to Stash-IS <%= current_user.full_name if current_user%>!</h1>
+  <hr/>
+  <h3>This is the welcome page of Stash-IS! </h3>
+  <p>Register or Log in to use Stash-IS, or check out the About page below! </p>
+  <%= link_to "Head on to About", about_path, class: "btn btn-dark mt-4" %>
 </div>

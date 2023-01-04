@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Posts</h1>
-
-  <div id="posts">
+  <%= link_to "New post", new_post_path, class: "btn btn-dark" %>
+  <div id="posts" style="border: 0.1px solid grey; padding: 1em; margin: 1em; border-radius: 15px;">
     <% @posts.each do |post| %>
       <%= render post %>
       <p>
@@ -9,6 +9,4 @@
       </p>
     <% end %>
   </div>
-
-<%= link_to "New post", new_post_path, class: "btn btn-dark" %>
 </div>

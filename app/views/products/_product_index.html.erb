@@ -3,29 +3,29 @@
   <% category = locals[:category] %>
 
 <div class="product-<%= product.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;" >
+  <div class="row">
+    <div id="product-image-<%= product.id %>" style="width: 20%">
+      <%= image_tag(product.image_resized) %>
+    </div>
+    <div class="col-3 ms-5">
+      <div id="product-name-<%= product.id %>">
+        <h5>Product name: <%= product.name %></h5>
+      </div>
+      <div id="product-manufacturer-<%= product.id %>">
+        <h5>Manufacturer: <%= product.manufacturer %></h5>
+      </div>
 
-  <div id="product-image-<%= product.id %>">
-    <%= image_tag(product.image) %>
-  </div>
-
-  <div id="product-name-<%= product.id %>">
-    <h5>Product name: <%= product.name %></h5>
-  </div>
-  <div id="product-manufacturer-<%= product.id %>">
-    <h5>Manufacturer: <%= product.manufacturer %></h5>
-  </div>
-
-  <div id="product-quantity available-<%= product.id %>">
-    <h5>Quantity available: <%= product.stock_item.quantity_available %></h5>
-  </div>
-
-  <div id="options" data-controller="visibility">
-    <button class="btn btn-light btn btn-outline-dark" data-action="visibility#toggleTargets">Details</button>
-    <div data-visibility-target="hideable" hidden><%= render 'products/product', locals: { category: category, product: product } %></div>
-  </div>
-
-  <div>
-    <%= link_to "Edit", edit_product_path(product), class: "btn btn-light btn btn-outline-dark" %>
-    <%= button_to "Delete", product_path(product), method: :delete, class: "btn btn-dark" %>
+      <div id="product-quantity available-<%= product.id %>">
+        <h5>Quantity available: <%= product.stock_item.quantity_available %></h5>
+      </div>
+      <div id="options" data-controller="visibility">
+        <button class="btn btn-light btn btn-outline-dark" data-action="visibility#toggleTargets">Details</button>
+        <div data-visibility-target="hideable" hidden><%= render 'products/product', locals: { category: category, product: product } %></div>
+      </div>
+      <div class="btn btn-group">
+        <%= link_to "Edit", edit_product_path(product), class: "btn btn-light btn btn-outline-dark" %>
+        <%= button_to "Delete", product_path(product), method: :delete, class: "btn btn-dark" %>
+      </div>
+    </div>
   </div>
 </div>

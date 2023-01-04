@@ -11,4 +11,9 @@ class Product < ApplicationRecord
   def create_stock_item
     self.stock_item ||= StockItem.new[product: self]
   end
+
+  def image_resized
+    image.variant(resize_to_limit: [300,260]).processed
+  end
+
 end
