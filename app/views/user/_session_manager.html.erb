@@ -6,7 +6,7 @@
     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
       <li><%= link_to "Admin", admin_path, class:"dropdown-item" if current_user.admin? %></li>
       <li><%= link_to "New post", new_post_path, class:"dropdown-item"%></li>
-      <li><%= link_to "New project", new_project_path, class:"dropdown-item"%></li>
+      <li><%= link_to "New project (Admin only)", new_project_path, class:"dropdown-item" if current_user.admin? %></li>
       <li><%= link_to "New category (Admin only)", new_category_path, class:"dropdown-item" if current_user.admin? %></li>
       <li><%= link_to "Profile", user_path(current_user), class:"dropdown-item"%></li>
       <li><%= link_to "Edit account", edit_user_registration_path(current_user), class:"dropdown-item"%></li>
