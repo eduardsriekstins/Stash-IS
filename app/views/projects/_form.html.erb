@@ -21,9 +21,14 @@
     <%= form.rich_text_area :description %>
   </div>
 
-    <div>
+  <div>
     <%= form.label :address, style: "display: block" %>
     <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :deadline, style: "display: block" %>
+    <%= form.date_field :deadline, value: form.object.try(:strftime,"%m/%d/%Y") %>
   </div>
 
   <div>

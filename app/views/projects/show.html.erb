@@ -6,6 +6,9 @@
     
     <%= button_to "Delete this project", @project, method: :delete, class: "btn btn-dark ms-2" if current_user == @project.user  %>
   </div>
+  <div>
+    <h6> Total Project cost: <%= number_to_currency((Project::total_project_cost(@project)), separator: ',', unit: '€') %> </h6>
+  </div>
 
   <hr/>
   <div class="mb-5"><h4> Adding Products </h4>

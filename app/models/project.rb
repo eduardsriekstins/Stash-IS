@@ -21,4 +21,12 @@ class Project < ApplicationRecord
     end
   end
 
+  def self.total_project_cost(project)
+    total_price = 0.00
+    project.orderables.each do |orderable|
+      total_price = total_price + orderable.quantity * orderable.product.price.to_f
+    end
+    total_price
+  end
+
 end
