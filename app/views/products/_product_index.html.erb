@@ -18,6 +18,11 @@
       <div id="product-quantity available-<%= product.id %>">
         <h5>Quantity available: <%= product.stock_item.quantity_available %></h5>
       </div>
+
+      <div id="product-price-<%= product.id %>">
+        <h5>Price: <%= number_to_currency(product.price, separator: ',', unit: '€') %></h5>
+      </div>
+
       <div id="options" data-controller="visibility">
         <button class="btn btn-light btn btn-outline-dark" data-action="visibility#toggleTargets">Details</button>
         <div data-visibility-target="hideable" hidden><%= render 'products/product', locals: { category: category, product: product } %></div>
