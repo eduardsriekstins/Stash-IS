@@ -1,8 +1,14 @@
 <div id="<%= dom_id project %>">
   <div class="container">
+    <div>
+    <span class="badge rounded-pill bg-<%= project.badge_color %>"><%= project.status %></span>
+    </div>
     <h2><%= project.name %></h2>
     <div>
       <h5><%= project.description %></h5>
+    </div>
+    <div>
+      <h5>Project address: <%= project.address %></h5>
     </div>
     <p> Created by <%= project.user.full_name %></p>
   </div>

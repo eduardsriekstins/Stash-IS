@@ -2,6 +2,7 @@
   <div>
   <h6> Product name: <%= orderable.product.name %> </h6>
   <h6> Product quantity: <%= orderable.quantity %> </h6>
+  <h6> Product total cost: <%= number_to_currency((orderable.quantity * orderable.product.price), unit: "€", separator: ",") %> </h6>
   </div>
   <div class="row">
     <div class="col-2">

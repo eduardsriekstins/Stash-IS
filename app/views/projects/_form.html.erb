@@ -18,7 +18,17 @@
 
   <div>
     <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+    <%= form.rich_text_area :description %>
+  </div>
+
+    <div>
+    <%= form.label :address, style: "display: block" %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div>
+    <%= form.label :status %>
+    <%= form.select :status, Project::STATUS_OPTIONS %>
   </div>
 
   <div>
