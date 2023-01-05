@@ -5,11 +5,13 @@
     </div>
     <h2><%= project.name %></h2>
     <div>
-      <h5><%= project.description %></h5>
-    </div>
-    <div>
       <h5>Project address: <%= project.address %></h5>
     </div>
-    <p> Created by <%= project.user.full_name %></p>
-  </div>
+    <div>
+      <h6>Project deadline: <%= project.deadline.strftime("%d/%m/%Y") %></h6>
+    </div>
+    <p> Project manager: <%= project.user.full_name %></p>
+    <div>
+      <p><%= project.description %></p>
+    </div>
 </div>
