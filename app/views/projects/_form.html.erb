@@ -32,6 +32,11 @@
   </div>
 
   <div>
+    <%= form.label :agreement, style: "display: block" %>
+    <%= form.file_field :agreement %>
+  </div>
+
+  <div>
     <%= form.label :status %>
     <%= form.select :status, Project::STATUS_OPTIONS %>
   </div>

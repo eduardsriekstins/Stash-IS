@@ -4,6 +4,7 @@ class Project < ApplicationRecord
   has_many :orderables
   has_many :products, through: :orderables
   has_rich_text :description
+  has_one_attached :agreement, dependent: :destroy
   validates :status, inclusion: { in: [ 'to do', 'in progress', 'completed'] }
   STATUS_OPTIONS = [
     ['To Do', 'to do'],
