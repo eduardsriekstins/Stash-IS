@@ -1,12 +1,14 @@
 <div class="container">
   <h1>Posts</h1>
   <%= link_to "New post", new_post_path, class: "btn btn-dark" %>
-  <div id="posts" style="border: 0.1px solid grey; padding: 1em; margin: 1em; border-radius: 15px;">
+  <div id="posts">
     <% @posts.each do |post| %>
+      <div style="border: 0.1px solid grey; padding: 1em; margin: 1em; border-radius: 15px;">
       <%= render post %>
       <p>
         <%= link_to "Show this post", post, class: "btn btn-dark" %>
       </p>
+      </div>
     <% end %>
   </div>
 </div>

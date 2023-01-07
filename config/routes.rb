@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   get '/u/:id', to: 'users#profile', as: 'user'
 
+  post "u/make_admin" => "users#make_admin"
+  post "u/make_user" => "users#make_user"
   resources :projects do
     resources :tasks
     resources :orderables, shallow: true

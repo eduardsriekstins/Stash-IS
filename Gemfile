@@ -80,9 +80,3 @@ gem "devise"
 gem "byebug"
 
 gem "noticed"
-
-gem "prawn"
-
-gem "combine_pdf"
-
-gem "carrierwave"
