@@ -8,11 +8,13 @@
     </div>
   </div>
 
-  <% if current_user.admin? %>
+  <% if current_user.admin? && current_user != @user %>
     <br />
     <div class="btn btn-group">
-      <%= button_to "Make admin", { :controller => "users", :action => "make_admin", :id => @user.id}, class: 'btn btn-danger' %>
-      <%= button_to "Make user", { :controller => "users", :action => "make_user", :id => @user.id}, class: 'btn btn-danger' %>
+      <h4> User Admin options:</h4>
+      <%= button_to "Make admin", { :controller => "users", :action => "make_admin", :id => @user.id}, class: 'btn btn-danger ms-4' %>
+      <%= button_to "Make user", { :controller => "users", :action => "make_user", :id => @user.id}, class: 'btn btn-danger ms-3' %>
+      <%= button_to "Delete user", @user, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger ms-3" %>
     </div>
   <% end %>
 

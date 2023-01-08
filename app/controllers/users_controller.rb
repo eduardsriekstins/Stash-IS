@@ -18,6 +18,11 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
+  def destroy
+    @user.destroy
+    redirect_to root_path, notice: 'User deleted.'
+  end
+
   private
 
     def set_user

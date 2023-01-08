@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   post "u/make_admin" => "users#make_admin"
   post "u/make_user" => "users#make_user"
+  delete "u/:id" => "users#destroy"
+  
   resources :projects do
     resources :tasks
     resources :orderables, shallow: true
