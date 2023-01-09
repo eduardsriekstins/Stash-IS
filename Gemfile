@@ -79,4 +79,8 @@ gem "devise"
 
 gem "byebug"
 
+gem "rubocop"
+
+gem "brakeman"
+
 gem "noticed"

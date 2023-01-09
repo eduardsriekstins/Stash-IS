@@ -4,7 +4,7 @@
 <div class="btn btn-group">
   <%= link_to "Edit this category", edit_category_path(@category), class:"btn btn-light btn btn-outline-dark" if current_user.admin? %>
   <%= link_to "Back to categories", categories_path, class:"btn btn-light btn btn-outline-dark ms-2" %>
-  <%= button_to "Delete this category", @category, method: :delete, class: "btn btn-dark ms-2" %>
+  <%= button_to "Delete this category", @category, method: :delete, class: "btn btn-dark ms-2" if current_user.admin?%>
   <%= link_to "Create a new product", new_category_product_path(@category), class: "btn btn-dark ms-2" %>
 </div>
 <div>

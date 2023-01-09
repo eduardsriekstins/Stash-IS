@@ -6,7 +6,6 @@ class Product < ApplicationRecord
   has_many :projects, through: :orderables
   has_one :stock_item
   accepts_nested_attributes_for :stock_item, update_only: true
-  #after_initialize :create_stock_item
 
   def create_stock_item
     self.stock_item ||= StockItem.new[product: self]

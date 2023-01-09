@@ -1,5 +1,4 @@
 <div class="task-<%= task.id %> container" style="border: 1px solid black; padding: 1em; margin: 1em;">
-  <% if current_user == task.user %>
     <div class="btn-group float-end">
       <%= link_to "Edit", nil, remote: true, class: "btn btn-light btn btn-outline-dark",
         data: {
@@ -15,7 +14,6 @@
     <div id="edit-form-<%= task.id %>" class="d-none">
       <%= render 'tasks/form', project: @project, task: task, label_for_submit: "Update" %>
     </div>
-  <% end %>
   <div id="task-name-<%= task.id %>">
     <h5>Task name: <%= task.name %></h5>
   </div>

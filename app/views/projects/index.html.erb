@@ -2,7 +2,7 @@
   <div class="container card mt-5 mb-5">
     <br />
     <h2 class="card-title d-flex justify-content-between mt-3 mb-3"><span>Projects</span>
-    <%= link_to "New project", new_project_path, class: "btn btn-dark" %>
+    <%= link_to "New project", new_project_path, class: "btn btn-dark" if current_user.admin? %>
     </h2>
     <br />
 

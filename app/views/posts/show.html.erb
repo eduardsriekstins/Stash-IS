@@ -1,10 +1,10 @@
 <div class="container mb-3 "style="border: 0.1px solid grey; padding: 1em; margin: 1em; border-radius: 15px;">
   <%= render @post %>
   <div class="btn btn-group">
-    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light btn btn-outline-dark mb-3" if current_user == @post.user %>
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-light btn btn-outline-dark mb-3" if current_user == @post.user || current_user.admin? %>
     <%= link_to "Back to posts", posts_path, class: "btn btn-light btn-outline-dark mb-3 ms-2" %>
 
-    <%= button_to "Delete this post", @post, method: :delete, class: "btn btn-dark ms-2" if current_user == @post.user  %>
+    <%= button_to "Delete this post", @post, method: :delete, class: "btn btn-dark ms-2" if current_user == @post.user || current_user.admin?  %>
   </div>
 </div>
 
