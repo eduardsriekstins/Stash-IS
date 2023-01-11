@@ -9,15 +9,15 @@ class ProductsController < ApplicationController
 
   def create
     @category = Category.find(params[:category_id])
-    @product = @category.products.create(products_params)
+    @product = Product.new(products_params)
     @product.user = current_user
-
-    if @product.save
+    if @product.created_at != nil && @product.save
       flash[:notice] = "Product has been created"
       redirect_to category_path(@category)
     else
+      byebug
       flash[:notice] = "Product has not been created"
-      redirect_to category_path(@category)
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -39,16 +39,19 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:category_id])
-    @product = @category.products.find(params[:id])
-    @product.destroy
-    redirect_to category_path(@category)
+    @product = Product.find(params[:id])
+    @category = @product.category
+
+    if @product.destroy
+
+      redirect_to category_path(@category)
+    end
   end
 
   private
 
     def products_params
-      params.require(:product).permit(:name, :model, :description, :category_id, :price, :image, :manufacturer, stock_item_attributes: [:quantity_available])
+      params.require(:product).permit(:name, :model, :description, :category_id, :price, :image, :manufacturer, stock_item_attributes: [:id, :quantity_available])
     end
 
 

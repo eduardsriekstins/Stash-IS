@@ -9,6 +9,15 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :tasks, dependent: :destroy
   has_one_attached :avatar
+  validate :validate_file_type
+
+  def validate_file_type
+    return unless avatar.attached?
+    unless avatar.content_type.in?(%w[image/jpeg image jpg image/png])
+      errors.add(:avatars, "Must be a JPEG, JPG or PNG")
+    end
+  end
+
 
   # def email_required? for disabling required errors from the devise library, search for the errors in yml file?
   #   true

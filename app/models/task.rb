@@ -2,6 +2,8 @@ class Task < ApplicationRecord
   belongs_to :project
   belongs_to :user
   has_rich_text :description
+  validates :name, presence: true
+  validates :description, presence: true
   validates :status, inclusion: { in: [ 'to do', 'in progress', 'completed'] }
   STATUS_OPTIONS = [
     ['To Do', 'to do'],
