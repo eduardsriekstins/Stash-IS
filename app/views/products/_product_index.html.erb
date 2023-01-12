@@ -20,7 +20,7 @@
       </div>
 
       <div id="product-price-<%= product.id %>">
-        <h5>Price: <%= number_to_currency(product.price, separator: ',', unit: '€') %></h5>
+        <h5>Price/pc: <%= number_to_currency(product.price, separator: ',', unit: '€') %></h5>
       </div>
 
       <div id="options" data-controller="visibility">

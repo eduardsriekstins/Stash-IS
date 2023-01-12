@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product has been created"
       redirect_to category_path(@category)
     else
-      byebug
       flash[:notice] = "Product has not been created"
       render :new, status: :unprocessable_entity
     end
