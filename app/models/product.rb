@@ -12,7 +12,6 @@ class Product < ApplicationRecord
   validates :description, presence: true
   validates :image, presence: true
   validates :price, presence: true
-  validates :quantity_available, presence: true
   validate :validate_file_type
   
   def validate_file_type

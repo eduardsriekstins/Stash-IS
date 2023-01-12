@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product = Product.new(products_params)
     @product.user = current_user
-    if @product.created_at != nil && @product.save
+    if @product.save
       flash[:notice] = "Product has been created"
       redirect_to category_path(@category)
     else
@@ -43,7 +43,7 @@ class ProductsController < ApplicationController
     @category = @product.category
 
     if @product.destroy
-
+      flash[:notice] = "Product has been deleted."
       redirect_to category_path(@category)
     end
   end
