@@ -4,7 +4,7 @@
     <%= link_to "New category", new_category_path, class: "btn btn-dark" if current_user.admin? %>
   </h2>
   <br>
-  <% @categories.in_groups_of(4, false).each do |group| %>
+  <% @categories.in_groups_of(3, false).each do |group| %>
   <div class="row">
     <% group.each do |category| %>
       <div class="col-md-3 card d-flex justify-content-center ms-2">
