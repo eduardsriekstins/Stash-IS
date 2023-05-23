@@ -4,8 +4,10 @@
     <span class="badge rounded-pill bg-<%= project.badge_color %>"><%= project.status %></span>
     </div>
     <h2><%= project.name %></h2>
-    <div>
+    <div id="address" data-address="<%= project.address%>">
       <h5>Project address: <%= project.address %></h5>
+    </div>
+    <div id="map" data-lat="<%= project.latitude %>" data-lon="<%= project.longitude %>" >
     </div>
     <div>
       <h6>Project deadline: <%= project.deadline.strftime("%d/%m/%Y") %></h6>

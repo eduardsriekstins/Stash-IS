@@ -84,3 +84,5 @@ gem "rubocop"
 gem "brakeman"
 
 gem "noticed"
+
+gem "geocoder"

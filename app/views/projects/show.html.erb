@@ -9,6 +9,7 @@
   <div>
     <h6> Total Project cost: <%= number_to_currency((Project::total_project_cost(@project)), separator: ',', unit: '€') %> </h6>
     <%= link_to "Download Agreement", url_for(@project.agreement), class: "link link-dark" if @project.agreement.attached? && current_user == @project.user%>
+    <div class="leaflet-container" style="min-height: 400px; max-width: 600px;" data-controller="map" data-map-target="placeholder">
   </div>
 
   <hr/>
