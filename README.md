@@ -3,6 +3,13 @@ This is a simple Inventory system with Project management capabilities.
 Ruby version: 3.0.0  
 Rails version: 7.0.4  
 
+Project can be set up using:
+* Cloning from GitHub
+* bundle install
+* ./bin/rails s
+
+
+
 Projects:   
 ![image](https://github.com/eduardsriekstins/Stash-IS/assets/106615208/c6665766-e62d-4029-81f2-d8dec10b6ba2)  
 
