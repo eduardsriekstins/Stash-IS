@@ -3,11 +3,6 @@ This is a simple Inventory system with Project management capabilities.
 Ruby version: 3.0.0  
 Rails version: 7.0.4  
 
-Project can be set up using:
-* Cloning from GitHub
-* bundle install
-* ./bin/rails s
-
 
 
 Projects:   
