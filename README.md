@@ -14,6 +14,9 @@ A single project:
 Products:  
 ![image](https://github.com/eduardsriekstins/Stash-IS/assets/106615208/b7ee3463-d1b4-4abc-bbc0-7438e38f6b57)  
 
+Admin:  
+![image](https://github.com/eduardsriekstins/Stash-IS/assets/106615208/fd4eac62-475c-4de4-9044-4bb08b2678ec)
+
 
 
 
